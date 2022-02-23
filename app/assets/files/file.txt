@@ -1,0 +1,5 @@
+test
+
+a)t b)t2 c)t3 d)c4
+
+ans c

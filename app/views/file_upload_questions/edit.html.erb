@@ -1,0 +1,8 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">Editing file upload question</h1>
+
+  <%= render "form", file_upload_question: @file_upload_question %>
+
+  <%= link_to "Show this file upload question", @file_upload_question, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to file upload questions", file_upload_questions_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>

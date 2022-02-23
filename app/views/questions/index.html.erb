@@ -1,0 +1,25 @@
+<div class="w-full mt-5 bg-white py-4 px-4">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+
+<% if @questions.present? %>
+  <div class="pt-6 sm:pt-5">
+    <div role="group" aria-labelledby="label-notifications">
+      <div class="w-full">
+        <div id="questions" class="min-w-full">
+          <%= form_tag do%>
+            <%= render @questions %>
+            
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= will_paginate @questions %>
+
+<% end %>
+
+</div>
