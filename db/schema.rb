@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -61,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
     t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.integer "admin_id", null: false
+    t.bigint "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_profiles_on_admin_id"
@@ -71,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
     t.string "question"
     t.text "options"
     t.string "correct_answer"
-    t.integer "quiz_id", null: false
+    t.bigint "quiz_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
@@ -81,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
     t.string "name"
     t.integer "duration"
     t.text "description"
-    t.integer "subject_id", null: false
+    t.bigint "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_quizzes_on_subject_id"
@@ -89,12 +92,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
 
   create_table "results", force: :cascade do |t|
     t.integer "marks"
-    t.integer "user_id", null: false
-    t.integer "quiz_id", null: false
+    t.bigint "quiz_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_results_on_quiz_id"
-    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -109,5 +110,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_121325) do
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "subjects"
   add_foreign_key "results", "quizzes"
-  add_foreign_key "results", "users"
 end

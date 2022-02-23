@@ -73,3 +73,4 @@ gem 'activerecord-import'
 
 gem 'will_paginate'
 gem 'pry-rails'
+gem 'pg'
