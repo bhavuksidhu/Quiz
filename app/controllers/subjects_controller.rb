@@ -73,7 +73,6 @@ class SubjectsController < ApplicationController
 
 
   def upload_question(params,subid)
-    binding.pry
     file = params[:upload_file].tempfile
     all_question=[]
     option_value=[]

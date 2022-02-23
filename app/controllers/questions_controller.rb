@@ -41,7 +41,6 @@ class QuestionsController < ApplicationController
   end
 
   def upload_question
-    binding.pry
     file = params[:upload_file].tempfile
     all_question=[]
     option_value=[]
